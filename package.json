@@ -20,12 +20,12 @@
     "backend",
     "graphql"
   ],
-  "author": "malibb98",
+  "author": "alanDega",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/malibb/b35-backend/issues"
+    "url": "https://github.com/AlanDega/cinta-negra-backend/issues"
   },
-  "homepage": "https://github.com/malibb/b35-backend#readme",
+  "homepage": "https://github.com/AlanDega/cinta-negra-backend#readme",
   "dependencies": {
     "bcrypt": "^3.0.6",
     "cloudinary": "1.15.0",
