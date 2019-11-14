@@ -1,4 +1,4 @@
-const UserResolver = require('./UserResolvers');
+const ClientResolver = require('./ClientResolvers');
 const TransactionResolver = require('./TransactionResolver');
 const {
     EmailAddressResolver,
@@ -10,11 +10,11 @@ module.exports = {
     EmailAddress: EmailAddressResolver,
     URL: URLResolver,
     Query:{
-        ...UserResolver.Query,
+        ...ClientResolver.Query,
         ...TransactionResolver.Query
     },
     Mutation:{
-        ...UserResolver.Mutation,
+        ...ClientResolver.Mutation,
         ...TransactionResolver.Mutation
     }
 };

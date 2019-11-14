@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const WalletSchema = new Schema({
-    user:{
+    client:{
         type:Schema.Types.ObjectId,
-        ref:'user',
+        ref:'client',
         unique: true
     //    pregunta: porque unique?
     },

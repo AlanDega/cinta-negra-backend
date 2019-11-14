@@ -1,0 +1,14 @@
+{
+  "data":{
+    "currency":  "BTC",
+    "transaction_type": "COMPRA"
+   
+  }
+}
+mutation createTransaction ($data:TransactionInput!){
+  createNewTransaction(data:$data) {
+
+    currency
+    transaction_type
+  }
+}

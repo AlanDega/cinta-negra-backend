@@ -3,17 +3,19 @@ scalar URL
 directive @auth on FIELD_DEFINITION | FIELD 
 
 type Query {
-    getSingleUser:User
-    getUsers:[User]!
-    getSingleTransaction:Transaction
+    getSingleClient(id:ID):Client!
+    getClients:[Client]!
+    getSingleTransaction(id:ID):Transaction!
     getTransactions:[Transaction]!
+    me:Client!@auth
 }
 
 type Mutation {
-    createNewUser(data: UserInput!):User!
-    updateOneUser(id:ID!, data: UserUpdateInput!):User!@auth
-    deleteOneUser(id:ID!):String!@auth
-    createNewTransaction(data: TransactionInput!):Transaction!@auth
+    createNewClient(data: ClientInput!):Client!
+    updateOneClient(id:ID!, data: ClientUpdateInput!):Client!@auth
+    deleteOneClient(id:ID!):String!@auth
+    createNewTransaction(data: TransactionInput!):Transaction!
+    # @auth
     updateOneTransaction(id:ID!, data: TransactionUpdateInput!):Transaction!@auth
     deleteOneTransaction(id:ID!):String!@auth
     login(email:EmailAddress!, password:String):Auth!
@@ -26,13 +28,12 @@ type Auth{
 
 type Transaction{
     _id:ID!
-    currency:String!
-    Transaction_type: TRANSACTION_TYPE
-    quantity:Float!
-    user:User!
+    currency:TOKENS
+    transaction_type: TRANSACTION_TYPE
+    client:Client!
 }
 
-type User{
+type Client{
     _id:ID!
     first_name:String!
     last_name:String!
@@ -45,20 +46,17 @@ type Wallet {
     eth:Float!
     xrp:Float!
     mxn:Float!
-    btc_mxn:Float!
-    eth_mxn:Float!
-    xrp_mxn:Float!
     token_balances:TOKEN_BALANCES
 }
 
 input TransactionInput{
-    currency:String!
-    quantity:Float!
+    currency: TOKENS
+    transaction_type: TRANSACTION_TYPE
     #User:String!
 }
 
 
-input UserInput{
+input ClientInput{
     first_name:String!
     last_name:String!
     email:EmailAddress!
@@ -80,14 +78,12 @@ input WalletUpdateInput{
 }
 
 input TransactionUpdateInput{
-    title:String
-    content:String
-    cover_photo:URL
-    liked_by: String
+    currency:TOKENS
+    transaction_type: TRANSACTION_TYPE
     is_active:Boolean
 }
 
-input UserUpdateInput{
+input ClientUpdateInput{
     first_name:String
     last_name:String
     email:EmailAddress
@@ -99,6 +95,14 @@ input UserUpdateInput{
 enum TRANSACTION_TYPE {
     COMPRA
     VENTA
+}
+
+
+
+enum TOKENS {
+     BTC
+    ETH
+    XRP
 }
 
 enum TOKEN_BALANCES {

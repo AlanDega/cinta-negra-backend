@@ -1,7 +1,7 @@
-const Users = require('./User');
+const Clients = require('./Client');
 const Transactions = require('./Transaction');
 
 module.exports = {
-    Users,
+    Clients,
     Transactions
 };

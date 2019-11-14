@@ -3,17 +3,18 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const TransactionSchema = new Schema({
-    title: {
+    currency: {
         type: String,
+        enum: ['BTC','ETH','XRP'],
+    },
+    transaction_type: {
+        type: String,
+        enum:['COMPRA','VENTA'],
         required: true
     },
-    content: {
-        type: String,
-        required: true
-    },
-    user: {
+    client: {
         type: Schema.Types.ObjectId,
-        ref: 'user',
+        ref: 'client',
     },
     
     // verifications:{
@@ -21,7 +22,7 @@ const TransactionSchema = new Schema({
     // },
     // verified_by:{
     //     type: [Schema.Types.ObjectId],
-    //     ref: 'user',
+    //     ref: 'client',
     // },
     is_active: {
         type: Boolean,

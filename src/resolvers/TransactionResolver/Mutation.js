@@ -8,12 +8,12 @@ const storage = require('./../../utils/storage');
 const createNewTransaction = async (_, { data }, { user }) => {
     data.user = user._id;
     console.log(user);
-    if (data.cover_photo){
-        const { createReadStream } = await data.cover_photo;
-        const stream = createReadStream();
-        const image = await storage({stream});
-        data = { ...data, cover_photo: image.url};
-    }
+    // if (data.cover_photo){
+    //     const { createReadStream } = await data.cover_photo;
+    //     const stream = createReadStream();
+    //     const image = await storage({stream});
+    //     data = { ...data, cover_photo: image.url};
+    // }
 
     const transaction = await createTransaction(data);
     user.transactions.push(transaction._id);
@@ -28,7 +28,8 @@ const updateOneTransaction = async (_, {id,data}, { user }) => {
         const stream = createReadStream();
         const image = await storage({stream});
         data = { ...data, cover_photo: image.url, user};
-    }
+        // cómo lp uedo cambiar a mi sistema PREGUNTA
+    } 
     if (!transaction) throw new Error('Transaction does not exist');
     return transaction;
 };

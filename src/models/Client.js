@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
+const ClientSchema = new Schema({
     first_name:{
         type:String,
         required:true
@@ -26,9 +26,9 @@ const UserSchema = new Schema({
         type:[Schema.Types.ObjectId],
         ref:'transactions'
     },
-    profile_pic:{
-        type:String
-    },
+    // profile_pic:{
+    //     type:String
+    // },
     is_active:{
         type:Boolean,
         default:true
@@ -37,18 +37,18 @@ const UserSchema = new Schema({
     timestamps:true
 });
 
-UserSchema.pre('save', function(next){
-    const user = this;
+ClientSchema.pre('save', function(next){
+    const client = this;
     const SALT_FACTOR = 10;
-    if(!user.isModified('password')) { return next();}
+    if(!client.isModified('password')) { return next();}
     bcrypt.genSalt(SALT_FACTOR, function (err, salt){
         if(err) return next(err);
-        bcrypt.hash(user.password, salt, function(error, hash){
+        bcrypt.hash(client.password, salt, function(error, hash){
             if(error) return next(err);
-            user.password = hash;
+            client.password = hash;
             next();
         });
     });
 });
 
-module.exports = mongoose.model('user', UserSchema);
+module.exports = mongoose.model('client', ClientSchema);
