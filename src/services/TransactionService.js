@@ -9,6 +9,7 @@ const getOneTransaction = (id) => Transactions.findById({
     is_active: true
 });
 const getAllTransactions = () => Transactions.find({
+    
     is_active: true
 });
 const updateTransaction = (id, data) => Transactions.findByIdAndUpdate(id, {

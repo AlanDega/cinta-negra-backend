@@ -8,11 +8,7 @@ const TransactionSchema = new Schema({
         enum: ['BTC','ETH','XRP'],
     },
 
-    // // quantity: {
-    // //     type: Number,
-    // //     required: true
-
-    // },
+   
     transaction_type: {
         type: String,
         enum:['COMPRA','VENTA'],
@@ -22,6 +18,11 @@ const TransactionSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'client',
     },
+    // quantity: {
+    // //     type: Number,
+    // //     required: true
+
+    // },
     
     // verifications:{
     //     type:Number

@@ -5,6 +5,7 @@ const {
 
 const getClients = async () => {
     const clients = await getAllClients();
+    console.log(clients)
     return clients;
 };
 
