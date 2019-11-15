@@ -11,7 +11,8 @@ const getOneTransaction = (id) => Transactions.findById({
 const getAllTransactions = () => Transactions.find({
     
     is_active: true
-});
+}).populate('author');
+
 const updateTransaction = (id, data) => Transactions.findByIdAndUpdate(id, {
     ...data
 }, {
