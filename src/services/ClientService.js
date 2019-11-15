@@ -6,7 +6,7 @@ const getOneClient = (id) => Clients.findById({_id: id, is_active:true}).populat
     path:'transactions',
     model:'transactions'});
 const getAllClients = () => Clients.find({is_active:true}).populate({ path:'transactions',
-model:'transactions'});
+    model:'transactions'});
 const getClientByEmail = (email) => Clients.findOne({email, is_active:true});
 const updateClient = (id, data) => Clients.findByIdAndUpdate(id,{...data},{ new:true });
 const deleteClient = (id) => Clients.findByIdAndUpdate({_id:id, is_active: true},{is_active:false});
