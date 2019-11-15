@@ -51,7 +51,7 @@ type Wallet {
 
 input TransactionInput{
     currency: TOKENS
-    quantity: Float
+    # quantity: Float
     transaction_type: TRANSACTION_TYPE
     #User:String!
 }

@@ -6,7 +6,7 @@ const WalletSchema = new Schema({
     client:{
         type:Schema.Types.ObjectId,
         ref:'client',
-        unique: true
+        // unique: true
     //    pregunta: porque unique?
     },
 
@@ -17,7 +17,7 @@ const WalletSchema = new Schema({
     transactions: {
         type: [Schema.Types.ObjectId],
         ref:'transactions',
-        required: true
+        // required: true
     },
     
 }, {

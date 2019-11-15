@@ -30,10 +30,10 @@ const TransactionSchema = new Schema({
     //     type: [Schema.Types.ObjectId],
     //     ref: 'client',
     // },
-    is_active: {
-        type: Boolean,
-        default: true
-    }
+    // is_active: {
+    //     type: Boolean,
+    //     default: true
+    // }
 }, {
     timestamps: true
 });
