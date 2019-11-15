@@ -7,6 +7,12 @@ const TransactionSchema = new Schema({
         type: String,
         enum: ['BTC','ETH','XRP'],
     },
+
+    // // quantity: {
+    // //     type: Number,
+    // //     required: true
+
+    // },
     transaction_type: {
         type: String,
         enum:['COMPRA','VENTA'],
