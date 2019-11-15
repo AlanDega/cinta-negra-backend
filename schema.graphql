@@ -95,14 +95,14 @@ input ClientUpdateInput{
 }
 
 
-type Subscription{
-    transaction: TransactionSubscriptionPayload!
-}
+# type Subscription{
+#     transaction: TransactionSubscriptionPayload!
+# }
 
-type TransactionSubscriptionPayload{
-    mutation:String!
-    data:Transaction!
-}
+# type TransactionSubscriptionPayload{
+#     mutation:String!
+#     data:Transaction!
+# }
 
 enum TRANSACTION_TYPE {
     COMPRA
