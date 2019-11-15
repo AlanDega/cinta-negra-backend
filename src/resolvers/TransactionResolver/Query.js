@@ -4,7 +4,8 @@ const {
 } = require('../../services/TransactionService');
 
 const getTransactions = async () => {
-    const transactions = await getAllTransactions().populate('client');
+    const transactions = await getAllTransactions();
+    // .populate('client');
     return transactions;
 };
 
