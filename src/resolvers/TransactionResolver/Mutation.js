@@ -14,8 +14,11 @@ const createNewTransaction = async (_, { data }, { user }) => {
     //     const image = await storage({stream});
     //     data = { ...data, cover_photo: image.url};
     // }
-
+    console.log(data)
     const transaction = await createTransaction(data);
+    console.log(transaction)
+
+
     user.transactions.push(transaction._id);
     user.save();
     return transaction;
