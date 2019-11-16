@@ -54,7 +54,7 @@ input TransactionInput{
     currency: TOKENS
     # quantity: Float
     transaction_type: TRANSACTION_TYPE
-    User:String!
+    # User:String!
 }
 
 

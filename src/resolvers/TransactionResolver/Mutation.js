@@ -16,7 +16,7 @@ const createNewTransaction = async (_, { data }, { user }) => {
     // }
     console.log(data)
     const transaction = await createTransaction(data);
-    console.log(transaction)
+    console.log(transaction);
 
 
     user.transactions.push(transaction._id);
